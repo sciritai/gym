@@ -1,0 +1,141 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>LOKI Gym GIF Gallery</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #121212; color: white; margin: 0; padding: 20px; }
+            h1 { text-align: center; color: #ffcc00; margin-bottom: 30px; }
+            
+            /* Grid Layout */
+            .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+            .card { background: #1e1e1e; padding: 10px; border-radius: 12px; transition: transform 0.2s; cursor: pointer; border: 1px solid #333; }
+            .card:hover { transform: scale(1.03); border-color: #ffcc00; }
+            img { width: 100%; border-radius: 8px; display: block; }
+            p { margin: 12px 0 5px; font-weight: 600; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px; color: #bbb; }
+
+            /* Full Page Overlay */
+            #overlay {
+                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; flex-direction: column;
+            }
+            #overlay img { max-width: 90%; max-height: 80%; width: auto; border: 2px solid #ffcc00; }
+            #overlay-title { margin-top: 20px; font-size: 1.5em; color: #ffcc00; }
+            .close-btn { position: absolute; top: 30px; right: 40px; font-size: 40px; color: white; cursor: pointer; font-weight: bold; }
+        </style>
+    </head>
+    <body>
+
+        <h1>LOKI INTERACTIVE LIBRARY</h1>
+        
+        <div class="grid">
+    
+            <div class="card" onclick="openFullPage('01_seated_chest_press.gif', 'Seated Chest Press')">
+                <img src="01_seated_chest_press.gif">
+                <p>Seated Chest Press</p>
+            </div>
+            <div class="card" onclick="openFullPage('02_incline_press.gif', 'Incline Press')">
+                <img src="02_incline_press.gif">
+                <p>Incline Press</p>
+            </div>
+            <div class="card" onclick="openFullPage('03_decline_press.gif', 'Decline Press')">
+                <img src="03_decline_press.gif">
+                <p>Decline Press</p>
+            </div>
+            <div class="card" onclick="openFullPage('04_chest_fly.gif', 'Chest Fly')">
+                <img src="04_chest_fly.gif">
+                <p>Chest Fly</p>
+            </div>
+            <div class="card" onclick="openFullPage('05_shoulder_press.gif', 'Shoulder Press')">
+                <img src="05_shoulder_press.gif">
+                <p>Shoulder Press</p>
+            </div>
+            <div class="card" onclick="openFullPage('06_lateral_raise.gif', 'Lateral Raise')">
+                <img src="06_lateral_raise.gif">
+                <p>Lateral Raise</p>
+            </div>
+            <div class="card" onclick="openFullPage('07_front_raise.gif', 'Front Raise')">
+                <img src="07_front_raise.gif">
+                <p>Front Raise</p>
+            </div>
+            <div class="card" onclick="openFullPage('08_lat_pulldown.gif', 'Lat Pulldown')">
+                <img src="08_lat_pulldown.gif">
+                <p>Lat Pulldown</p>
+            </div>
+            <div class="card" onclick="openFullPage('09_seated_row.gif', 'Seated Row')">
+                <img src="09_seated_row.gif">
+                <p>Seated Row</p>
+            </div>
+            <div class="card" onclick="openFullPage('10_bent_over_row.gif', 'Bent Over Row')">
+                <img src="10_bent_over_row.gif">
+                <p>Bent Over Row</p>
+            </div>
+            <div class="card" onclick="openFullPage('11_face_pull.gif', 'Face Pull')">
+                <img src="11_face_pull.gif">
+                <p>Face Pull</p>
+            </div>
+            <div class="card" onclick="openFullPage('12_bicep_curl.gif', 'Bicep Curl')">
+                <img src="12_bicep_curl.gif">
+                <p>Bicep Curl</p>
+            </div>
+            <div class="card" onclick="openFullPage('13_tricep_pushdown.gif', 'Tricep Pushdown')">
+                <img src="13_tricep_pushdown.gif">
+                <p>Tricep Pushdown</p>
+            </div>
+            <div class="card" onclick="openFullPage('14_overhead_tricep_ext.gif', 'Overhead Tricep Ext')">
+                <img src="14_overhead_tricep_ext.gif">
+                <p>Overhead Tricep Ext</p>
+            </div>
+            <div class="card" onclick="openFullPage('15_leg_extension.gif', 'Leg Extension')">
+                <img src="15_leg_extension.gif">
+                <p>Leg Extension</p>
+            </div>
+            <div class="card" onclick="openFullPage('16_leg_curl.gif', 'Leg Curl')">
+                <img src="16_leg_curl.gif">
+                <p>Leg Curl</p>
+            </div>
+            <div class="card" onclick="openFullPage('17_leg_press.gif', 'Leg Press')">
+                <img src="17_leg_press.gif">
+                <p>Leg Press</p>
+            </div>
+            <div class="card" onclick="openFullPage('18_squat.gif', 'Squat')">
+                <img src="18_squat.gif">
+                <p>Squat</p>
+            </div>
+            <div class="card" onclick="openFullPage('19_weighted_lunge.gif', 'Weighted Lunge')">
+                <img src="19_weighted_lunge.gif">
+                <p>Weighted Lunge</p>
+            </div>
+            <div class="card" onclick="openFullPage('20_ab_crunch.gif', 'Ab Crunch')">
+                <img src="20_ab_crunch.gif">
+                <p>Ab Crunch</p>
+            </div>
+            <div class="card" onclick="openFullPage('21_woodchopper.gif', 'Woodchopper')">
+                <img src="21_woodchopper.gif">
+                <p>Woodchopper</p>
+            </div>
+        </div>
+
+        <div id="overlay" onclick="closeFullPage()">
+            <span class="close-btn">&times;</span>
+            <img id="overlay-img" src="">
+            <div id="overlay-title"></div>
+            <p style="color: #666; font-size: 0.8em;">Click anywhere to return to gallery</p>
+        </div>
+
+        <script>
+            function openFullPage(src, title) {
+                document.getElementById('overlay-img').src = src;
+                document.getElementById('overlay-title').innerText = title;
+                document.getElementById('overlay').style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Stop background scrolling
+            }
+
+            function closeFullPage() {
+                document.getElementById('overlay').style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }
+        </script>
+    </body>
+    </html>
+    
